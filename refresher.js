@@ -1,5 +1,7 @@
 const puppeteer = require('puppeteer')
 
+const targetUrl = process.argv[2];
+
 (async () => {
 	const paths = '/opt/google/chrome/extensions/hgeljhfekpckiiplhkigfehkdpldcggm';
     	try {
@@ -16,13 +18,13 @@ const puppeteer = require('puppeteer')
 		await page.$eval('input[id="default_time"]', el => el.value = '5');
 		await page.click('button[id="autostart"]');
 		await page.focus('#as2');
-		await page.type('https://www.google.com/');
+		await page.type(targetUrl);
 		await page.click('button[id="pdcheck"]');
 		await page.focus('#pdurl');
-		await page.type('https://www.google.com/');
+		await page.type(targetUrl);
 		await page.click('button[id="save"]');
 	
-		await page.goto('https://www.google.com/');
+		await page.goto(targetUrl);
 	}
 	catch (err) {
 		fs = require('fs');
