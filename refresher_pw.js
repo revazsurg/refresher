@@ -1,3 +1,4 @@
+console.log('start script');
 const { chromium } = require('playwright');
 
 (async () => {
@@ -5,5 +6,6 @@ const { chromium } = require('playwright');
   const page = await browser.newPage();
   await page.goto('https://www.google.com/');
   await page.screenshot({ path: `google.png` });
+  console.log('screenshot captured');
   await browser.close();
 })();
