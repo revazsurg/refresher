@@ -1,4 +1,5 @@
 const puppeteer = require('puppeteer');
+const fs = require('fs');
 
 const TARGET_URL = process.argv[2];
 const INTERVAL = process.argv[3];
@@ -12,14 +13,15 @@ async function pageRefresh() {
     const page = await.browser.newPage();
 
     await page.goto(TARGETURL);
-    
+
+    page.on('load', () => fs.writeFile('/home/site_visit_log.txt', TARGET_URL + ' visited at ' + Date.now() + '\r\n');    
+
     if (Date.now() < END_TIME) {
     	setTimeout(pageRefresh(), INTERVAL);
     }
   }
   catch (err) {
-    fs = require('fs');
-    fs.writeFile('refresher_error.txt', err);
+    fs.writeFile('/home/refresher_error.txt', err);
   }
 }
 
