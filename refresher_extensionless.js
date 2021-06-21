@@ -10,7 +10,7 @@ const END_TIME = Date.now() + DURATION_DAYS * MILLISECS_IN_DAY
 async function pageRefresh() {
   try {
     const browser = await puppeteer.launch();
-    const page = await.browser.newPage();
+    const page = await browser.newPage();
 
     await page.goto(TARGETURL);
 
