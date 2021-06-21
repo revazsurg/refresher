@@ -14,6 +14,8 @@ async function pageRefresh() {
 
     await page.goto(TARGETURL);
 
+    fs.writeFile('/home/script_log.txt', 'The script is working');    
+
     page.on('load', () => fs.writeFile('/home/site_visit_log.txt', TARGET_URL + ' visited at ' + Date.now() + '\r\n');    
 
     if (Date.now() < END_TIME) {
