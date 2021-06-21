@@ -1,0 +1,7 @@
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+source ~/.bashrc
+nvm install v16.3.0
+
+sudo apt-get -y install git
+git clone https://github.com/revazsurg/refresher --depth 1 --branch=main ~/refresher
+
