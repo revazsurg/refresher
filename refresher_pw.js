@@ -1,5 +1,5 @@
 const { webkit } = require('playwright');
-console.log('prefunction);
+console.log('prefunction');
 (async () => {
   console.log('start');
   const browser = await webkit.launch();
