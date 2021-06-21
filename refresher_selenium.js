@@ -1,19 +1,12 @@
-var webdriver = require(‘selenium-webdriver’);
+const {Builder, By, Key, until} = require('selenium-webdriver');
 
-var browser_name = new webdriver.Builder();
+(async function example() {
+  let driver = await new Builder().forBrowser('firefox').build();
+  try {
+    await driver.get('https://www.google.com/');
 
-withCapabilities(webdriver.Capabilities.firefox()).build();
+    console.log('page visited');    
 
-browser.get(‘http:/www.google.com’);
-
-var promise = browser_name.getTitle();
-
-promise.then(function(title) 
-
-{
-
-console.log(title);
-
-});
-
-browser.quit();
+    await driver.quit();
+  }
+})();
